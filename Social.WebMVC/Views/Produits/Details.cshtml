@@ -1,0 +1,11 @@
+﻿@model Social.RepositoriesLibrary.Entities.Crawler.Medicine
+@{
+    ViewBag.Title = Model.ComputeName;
+    ViewBag.Description = Model.ComputeName;
+}
+
+<p>
+
+    @Html.Raw(Model.Content);
+
+</p>

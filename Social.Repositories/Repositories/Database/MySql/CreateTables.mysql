@@ -1,0 +1,224 @@
+﻿CREATE TABLE Entity(
+	Id int NOT NULL AUTO_INCREMENT,
+	MetaDataId int NOT NULL,
+	Name nvarchar(50) NOT NULL,
+	Bannished bit NOT NULL,
+	TypeId int NOT NULL,
+	VisibilityId int NOT NULL,
+ CONSTRAINT PK_Entity PRIMARY KEY CLUSTERED 
+(
+	Id ASC
+)
+) ENGINE = INNODB;
+
+CREATE TABLE EntityMetadata(
+	Id int NOT NULL AUTO_INCREMENT,
+	Pseudo nvarchar(50) NULL,
+	ShortName nvarchar(50) NULL,
+	LongName nvarchar(255) NULL,
+	Mail nvarchar(100) NULL,
+	Pwd nvarchar(255) NULL,
+	DateTime datetime NOT NULL,
+	FName nvarchar(50) NULL,
+	LName nvarchar(100) NULL,
+	MName nvarchar(50) NULL,
+	Description nvarchar(255) NULL,
+	Text nvarchar(19000) NULL,
+	Address1 nvarchar(50) NULL,
+	Address2 nvarchar(50) NULL,
+	Address3 nvarchar(50) NULL,
+	ZipCode nvarchar(50) NULL,
+	City nvarchar(100) NULL,
+	State nvarchar(50) NULL,
+	Country nvarchar(50) NULL,
+	Phone1 nvarchar(20) NULL,
+	Phone2 nvarchar(20) NULL,
+	Internet nvarchar(100) NULL,
+	Ip char(11) NULL,
+ CONSTRAINT PK_EntityMetadata PRIMARY KEY CLUSTERED 
+(
+	Id ASC
+))  ENGINE = INNODB;
+
+CREATE TABLE EntityType(
+	Id int NOT NULL,
+	Name nvarchar(20) NULL,
+ CONSTRAINT PK_EntityType PRIMARY KEY CLUSTERED 
+(
+	Id ASC
+))  ENGINE = INNODB;
+
+CREATE TABLE `Like`(
+	EntityId int NOT NULL,
+	MessageId int NOT NULL,
+	DateTime datetime NOT NULL,
+ CONSTRAINT PK_Like PRIMARY KEY CLUSTERED 
+(
+	EntityId ASC,
+	MessageId DESC
+))  ENGINE = INNODB;
+
+CREATE TABLE Link(
+	EntityIdFrom int NOT NULL,
+	EntityIdTo int NOT NULL,
+	TypeId int NOT NULL,
+	Status int NOT NULL,
+	DateTime datetime NOT NULL,
+	MessageId int NULL,
+ CONSTRAINT PK_Link PRIMARY KEY CLUSTERED 
+(
+	EntityIdFrom ASC,
+	EntityIdTo ASC,
+	TypeId ASC
+))  ENGINE = INNODB;
+
+CREATE TABLE LinkType(
+	Id int NOT NULL,
+	Name nvarchar(20) NOT NULL,
+ CONSTRAINT PK_LinkType PRIMARY KEY CLUSTERED 
+(
+	Id ASC
+))  ENGINE = INNODB;
+
+
+CREATE TABLE Message(
+	Id int NOT NULL AUTO_INCREMENT,
+	EntityIdFrom int NOT NULL,
+	EntityIdTo int NOT NULL,
+	TypeId int NOT NULL,
+	DateTime datetime NOT NULL,
+	VisibilityId int NOT NULL,
+	Tags nvarchar(50) NULL,
+	Text nvarchar(4000) NOT NULL,
+	Title nvarchar(100) NULL,
+	MessageId int NULL,
+	`LongText` nvarchar(15000) NULL,
+	Preview nvarchar(500) NULL,
+ CONSTRAINT PK_Message PRIMARY KEY CLUSTERED 
+(
+	Id DESC
+))  ENGINE = INNODB;
+
+CREATE TABLE MessageType(
+	Id int NOT NULL,
+	Name nvarchar(20) NULL,
+ CONSTRAINT PK_MessageType PRIMARY KEY CLUSTERED 
+(
+	Id ASC
+))  ENGINE = INNODB;
+
+CREATE TABLE Visibility(
+	Id int NOT NULL,
+	Name nvarchar(10) NOT NULL,
+ CONSTRAINT PK_Visibility PRIMARY KEY CLUSTERED 
+(
+	Id ASC
+))  ENGINE = INNODB;
+
+CREATE INDEX IX_Entity_Name ON Entity
+(
+	Name ASC
+);
+
+CREATE INDEX IX_Entity_TypeId ON Entity
+(
+	TypeId ASC
+);
+
+CREATE INDEX IX_Like_DateTime ON `Like`
+(
+	DateTime DESC
+);
+
+CREATE INDEX IX_Link_DateTime ON Link
+(
+	DateTime DESC
+);
+
+CREATE INDEX IX_Link_EntityTo ON Link
+(
+	EntityIdTo ASC
+);
+
+CREATE INDEX IX_Link_EntityTo_LinkTypeId ON Link
+(
+	EntityIdTo ASC,
+	TypeId ASC
+);
+
+CREATE INDEX IX_Message_EntityIdTo ON Message
+(
+	EntityIdTo ASC
+);
+
+CREATE INDEX IX_Message_EntityIdTo_TypeId_VisibilityId ON Message
+(
+	EntityIdTo ASC,
+	TypeId ASC,
+	VisibilityId ASC
+);
+
+CREATE INDEX IX_Message_Tags_Title ON Message
+(
+	Tags ASC,
+	Title ASC
+);
+
+ALTER TABLE Entity  ADD CONSTRAINT FK_Entity_EntityMetadata FOREIGN KEY Entity (MetaDataId)
+REFERENCES EntityMetadata (Id)
+;
+
+ALTER TABLE Entity  ADD  CONSTRAINT FK_Entity_EntityType FOREIGN KEY(TypeId)
+REFERENCES EntityType (Id)
+;
+
+ALTER TABLE Entity  ADD  CONSTRAINT FK_Entity_Visibily FOREIGN KEY(VisibilityId)
+REFERENCES Visibility (Id)
+;
+ALTER TABLE `Like`  ADD  CONSTRAINT FK_Like_Entity FOREIGN KEY(EntityId)
+REFERENCES Entity (Id)
+;
+ALTER TABLE `Like`  ADD  CONSTRAINT FK_Like_Message FOREIGN KEY(MessageId)
+REFERENCES Message (Id)
+;
+
+ALTER TABLE Link  ADD  CONSTRAINT FK_Link_Entity FOREIGN KEY(EntityIdTo)
+REFERENCES Entity (Id)
+;
+
+ALTER TABLE Link  ADD  CONSTRAINT FK_Link_EntityFrom FOREIGN KEY(EntityIdFrom)
+REFERENCES Entity (Id)
+;
+
+ALTER TABLE Link  ADD  CONSTRAINT FK_Link_LinkType FOREIGN KEY(TypeId)
+REFERENCES LinkType (Id)
+;
+
+ALTER TABLE Link  ADD  CONSTRAINT FK_Link_LinkTypeStatus FOREIGN KEY(Status)
+REFERENCES LinkType (Id)
+;
+
+ALTER TABLE Link  ADD  CONSTRAINT FK_Link_Message FOREIGN KEY(MessageId)
+REFERENCES Message (Id)
+;
+
+ALTER TABLE Message  ADD  CONSTRAINT FK_Message_Entity FOREIGN KEY(EntityIdFrom)
+REFERENCES Entity (Id)
+ON DELETE CASCADE
+;
+
+ALTER TABLE Message  ADD  CONSTRAINT FK_Message_EntityTo FOREIGN KEY(EntityIdTo)
+REFERENCES Entity (Id)
+;
+
+ALTER TABLE Message  ADD  CONSTRAINT FK_Message_Message FOREIGN KEY(MessageId)
+REFERENCES Message (Id)
+;
+
+ALTER TABLE Message  ADD  CONSTRAINT FK_Message_MessageType FOREIGN KEY(TypeId)
+REFERENCES MessageType (Id)
+;
+
+ALTER TABLE Message  ADD  CONSTRAINT FK_Message_Visibily FOREIGN KEY(VisibilityId)
+REFERENCES Visibility (Id)
+;

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Social.RepositoriesLibrary.Entities.Entity" Collapsed="true">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <AssociationLine Name="FromLinks" Type="Social.RepositoriesLibrary.Entities.Link" FixedToPoint="true">
+      <Path>
+        <Point X="3.25" Y="2.75" />
+        <Point X="3.25" Y="1.312" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ToLinks" Type="Social.RepositoriesLibrary.Entities.Link" FixedFromPoint="true">
+      <Path>
+        <Point X="3.875" Y="2.75" />
+        <Point X="3.875" Y="1.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.765" Y="0.216" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="FromMessages" Type="Social.RepositoriesLibrary.Entities.Message" FixedFromPoint="true">
+      <Path>
+        <Point X="3.625" Y="3.312" />
+        <Point X="3.625" Y="5.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ToMessages" Type="Social.RepositoriesLibrary.Entities.Message">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.118" Y="0.322" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Likes" Type="Social.RepositoriesLibrary.Entities.Like" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.875" Y="3.312" />
+        <Point X="3.875" Y="4.415" />
+        <Point X="5.25" Y="4.415" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.706" Y="0.298" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AECCAAAAAAAAAAAEAAABkAQAAAAAAAACAQAAAAAEAAA=</HashCode>
+      <FileName>Entities\Entity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="FromLinks" />
+      <Property Name="ToLinks" />
+      <Property Name="FromMessages" />
+      <Property Name="ToMessages" />
+      <Property Name="Likes" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Social.RepositoriesLibrary.Entities.EntityMetadata" Collapsed="true">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <AssociationLine Name="Entities" Type="Social.RepositoriesLibrary.Entities.Entity">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.36" Y="0.081" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAEgABANAAAEAAAECAIACIQBAIEALQAAIAA=</HashCode>
+      <FileName>Entities\EntityMetadata.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entities" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Social.RepositoriesLibrary.Entities.Link" Collapsed="true">
+    <Position X="2.5" Y="0.75" Width="1.5" />
+    <AssociationLine Name="Message" Type="Social.RepositoriesLibrary.Entities.Message" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.5" Y="1" />
+        <Point X="1.229" Y="1" />
+        <Point X="1.229" Y="5.938" />
+        <Point X="2.5" Y="5.938" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAEQAAAAAAEAAAIAAAEAAAAAAQEAQAAIAAAACA=</HashCode>
+      <FileName>Entities\Link.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Message" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Social.RepositoriesLibrary.Entities.Message" Collapsed="true">
+    <Position X="2.5" Y="5.75" Width="1.5" />
+    <AssociationLine Name="Childrens" Type="Social.RepositoriesLibrary.Entities.Message" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.017" Y="6.312" />
+        <Point X="3.017" Y="6.562" />
+        <Point X="3.5" Y="6.562" />
+        <Point X="3.5" Y="6.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.379" Y="1.109" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Likes" Type="Social.RepositoriesLibrary.Entities.Like" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.875" Y="5.75" />
+        <Point X="3.875" Y="4.604" />
+        <Point X="5.25" Y="4.604" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.178" Y="0.635" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEACAAABQAAAAEAEAAAMQAAEAAAAAEQCCwAACAAAACA=</HashCode>
+      <FileName>Entities\Message.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Childrens" />
+      <Property Name="Likes" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Social.RepositoriesLibrary.Entities.Like" Collapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAIAAAAEAAAAAAAAAAAAAAQEAAAAIAAAAAA=</HashCode>
+      <FileName>Entities\Like.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

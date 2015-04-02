@@ -1,0 +1,303 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #e9eaed;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: Helvetica, Arial, 'lucida grande',tahoma,verdana,arial,sans-serif;
+    color: #141823;
+    font-size: 13px;
+    padding-top: 12px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    /*max-width: 280px;*/
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.jumbotron p {
+  font-size: 14px;
+}
+
+#mainSearch {
+    width:260px;
+}
+
+.globalContainer {
+    border-left: 0;
+padding-left: 5px;
+font-size: 14px;
+padding-right: 0;
+
+}
+
+.content {
+}
+
+.composerArea {
+    background-color: white;
+    border-color: black;
+    padding: 10px;
+        border-radius: 5px;
+}
+
+.pageletComposer {
+    padding-bottom : 15px;
+}
+
+.pageletViewer {
+    padding-bottom : 15px;
+}
+#ComposerTB {
+    width: 100%;
+    border:0;
+}
+
+.composerSubmit  {
+padding: 6px 12px;
+text-align: right;
+background-color: #f2f2f2;
+border-top: 1px solid #e6e6e6;
+    border-radius: 5px;
+}
+
+.composerSubmit input {
+    background-color: #4e69a2;
+border-color: #435a8b #3c5488 #334c83;
+color:white;
+padding: 6px 12px;
+font-weight: bold;
+align-items:flex-end;
+
+}
+
+.menu {
+    font-size : 12px;
+}
+
+.composerImage {
+    background-position: center;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    background-image: url('http://murdusouvenir.medecinsdumonde.org/sites/default/files/imagecache/wall_preview/sites/all/themes/murdusouvenir/img/person_male.png');
+    padding-left: 0px;
+}
+
+.composerImageSmall {
+    background-position: center;
+    /*background-color: white;*/
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    background-image: url('http://murdusouvenir.medecinsdumonde.org/sites/default/files/imagecache/wall_preview/sites/all/themes/murdusouvenir/img/person_male.png');
+    padding-left: 0px;
+}
+
+.composerHeader {
+    padding-bottom : 10px;
+    padding-left: 0px;
+}
+
+.composerName {
+    padding-left : 10px;
+    color: #4e69a2;
+    font-weight: bold;
+
+}
+
+.composerDate {
+    padding-left : 10px;
+    color: #b6b6b6;
+}
+
+.commentDate {
+    padding-left : 0px;
+    color: #b6b6b6;
+}
+
+.messageId {
+    padding-left : 10px;
+    color: #eeeeee;
+    font-size: 10px;
+}
+
+.commentId {
+    padding-left : 0px;
+    color: #dddddd;
+    font-size: 10px;
+}
+
+#pageletViewerTemplate{
+   display:none;
+}
+
+.scrapper {
+    border: 1px solid #e2e2e2;
+    min-height:170px;
+    padding : 6px;
+    margin: 6px;
+}
+
+.scrapperImage {
+    background-position: center;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width:235px;
+    height:150px;
+}
+
+.scrapperImage.bigscrap {
+    background-position: center;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width:100%;
+    height:240px;
+}
+
+.scrapperImageHolder {
+    padding : 2px;
+    margin: 2px;
+}
+
+.scrapperButtonsText {
+    font-size:10px;
+    color : #888888;
+    
+}
+.scrapperTitle {
+    font-weight:bold;
+    font-size:14px;
+    padding-bottom:10px;
+}
+
+.scrapperUrl {
+    color : #b6b6b6;
+    padding-top : 4px;
+}
+
+.scrapperImageButtonsHolder {
+    float:left;
+    text-align:center;
+    width:250px;
+    min-height : 164px;
+}
+
+.scrapperImageButtonsHolder.bigscrap {
+    float:none;
+    text-align:center;
+    width:100%;
+}
+
+.scrapperIFrame {
+    width:240px;
+    height:133px;
+}
+
+.scrapperIFrame.bigscrap {
+    width:480px;
+    height:292px;
+}
+
+@media (max-width: 1023px) {
+    .scrapperIFrame.bigscrap {
+        width:240px;
+        height:133px;
+    }
+}
+
+@media (max-width: 767px) {
+    .searchButton {
+        display:none;
+    }
+}
+
+.scrapperA {
+    text-decoration:none;
+    color:black;
+}
+
+.scrapperA:hover {
+    text-decoration:none;
+    color:black;
+}
+
+#scrapperClose {
+    float:right;
+}
+
+.likeSpan {
+    color : #4e69a2;
+
+}
+
+.composerComments  {
+padding: 6px 12px;
+background-color: #f2f2f2;
+border-top: 1px solid #e6e6e6;
+    border-radius: 5px;
+}
+
+.composerComment {
+    width: 100%
+}
+
+.composerCommentTable {
+    width: 100%;
+}
+
+.commentEntity {
+    font-weight : bold;
+    color : #4e69a2;
+}
+
+.composerCommentTable td {
+    padding-left : 4px;
+    padding-bottom : 4px;
+}
+
+.pageletToolbar {
+    text-align : right;
+    padding-top : 10px;
+}
+
+.commentButton {
+    height : 27px;
+    padding: 3px;
+}

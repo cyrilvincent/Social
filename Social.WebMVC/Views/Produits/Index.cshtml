@@ -1,0 +1,65 @@
+﻿@using Social.WebMVC.Helpers
+@model Social.WebMVC.Models.SearchVM<Social.RepositoriesLibrary.Entities.Crawler.Medicine>
+@{
+    ViewBag.Title = "Médicament, Parapharmacie et Phytothérapie";
+}
+
+<p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.TextBoxFor(m => m.Text, new { id = "searchMedicine" })
+        @Html.DropDownListFor(m => m.Type)
+        <input type="submit" value="Rechercher" class="btn" />
+        @Html.ActionLink("Reset", "Reset");
+        <br />
+    }
+
+    @foreach (Social.RepositoriesLibrary.Entities.Crawler.Medicine m in Model.Results)
+    {
+        @Html.ActionLink(m.ComputeName, "Details", new { name = m.FileName })
+        <br/>
+    }
+        
+</p>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#searchMedicine").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/api/Search",
+                        dataType: "json",
+                        data: {
+                            search: $("#searchMedicine").val(),
+                            take: 10
+                        },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.ComputeName,
+                                    value: item.FileName
+                                }
+                            }));
+                        }
+                    });
+                },
+                minLength: 1,
+
+                select: function (event, ui) {
+                    //log(ui.item ?
+                    //  "Selected: " + ui.item.label :
+                    //  "Nothing selected, input was " + this.value);
+                },
+                open: function () {
+                    $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+                },
+                close: function () {
+                    $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+                }
+            });
+        });
+    </script>
+}

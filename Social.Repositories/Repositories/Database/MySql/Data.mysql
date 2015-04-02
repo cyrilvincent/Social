@@ -1,0 +1,112 @@
+﻿USE Social
+;
+INSERT EntityMetadata (Id, Pseudo, ShortName, LongName, Mail, Pwd, DateTime, FName, LName, MName, Description, Text, Address1, Address2, Address3, ZipCode, City, State, Country, Phone1, Phone2, Internet, Ip) VALUES (-1, N'Anonymous', NULL, NULL, NULL, NULL, NOW(), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,NULL)
+;
+INSERT EntityMetadata (Id, Pseudo, ShortName, LongName, Mail, Pwd, DateTime, FName, LName, MName, Description, Text, Address1, Address2, Address3, ZipCode, City, State, Country, Phone1, Phone2, Internet, Ip) VALUES (2, N'Cyril', NULL, NULL, N'contact@cyrilvincent.com', N'toto', NOW(), N'Cyril', N'Vincent', NULL, NULL, NULL, N'3 allée de champagne', NULL, NULL, N'38130', N'Echirolles', NULL, N'France', N'0622538762', NULL, N'www.cyrilvincent.com', N'192.168.1.0')
+;
+INSERT EntityMetadata (Id, Pseudo, ShortName, LongName, Mail, Pwd, DateTime, FName, LName, MName, Description, Text, Address1, Address2, Address3, ZipCode, City, State, Country, Phone1, Phone2, Internet, Ip) VALUES (3, NULL, N'CVC', N'Cyril Vincent Conseil', N'contact@cyrilvincent.com', NULL, NOW(), NULL, NULL, NULL, N'Cyril Vincent Conseil', NULL, N'', NULL, NULL, NULL, NULL, NULL, N'France', N'0622538762', NULL, N'www.cyrilvincent.com', N'192.168.1.0')
+;
+INSERT EntityMetadata (Id, Pseudo, ShortName, LongName, Mail, Pwd, DateTime, FName, LName, MName, Description, Text, Address1, Address2, Address3, ZipCode, City, State, Country, Phone1, Phone2, Internet, Ip) VALUES (4, NULL, N'Médecin', NULL, NULL, NULL, NOW(), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'France', NULL, NULL, NULL, NULL)
+;
+INSERT EntityMetadata (Id, Pseudo, ShortName, LongName, Mail, Pwd, DateTime, FName, LName, MName, Description, Text, Address1, Address2, Address3, ZipCode, City, State, Country, Phone1, Phone2, Internet, Ip) VALUES (6, NULL, N'Généraliste', NULL, NULL, NULL, NOW(), NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+;
+INSERT EntityMetadata (Id, Pseudo, ShortName, LongName, Mail, Pwd, DateTime, FName, LName, MName, Description, Text, Address1, Address2, Address3, ZipCode, City, State, Country, Phone1, Phone2, Internet, Ip) VALUES (7, N'John Doe', NULL, NULL, NULL, NULL, NOW(), N'Jean', N'Doe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+;
+INSERT Visibility (Id, Name) VALUES (1, N'public')
+;
+INSERT Visibility (Id, Name) VALUES (2, N'link')
+;
+INSERT Visibility (Id, Name) VALUES (3, N'protected')
+;
+INSERT Visibility (Id, Name) VALUES (4, N'private')
+;
+INSERT Visibility (Id, Name) VALUES (5, N'special')
+;
+INSERT EntityType (Id, Name) VALUES (1, N'guest')
+;
+INSERT EntityType (Id, Name) VALUES (2, N'user')
+;
+INSERT EntityType (Id, Name) VALUES (3, N'admin')
+;
+INSERT EntityType (Id, Name) VALUES (4, N'root')
+;
+INSERT EntityType (Id, Name) VALUES (5, N'enterprise')
+;
+INSERT EntityType (Id, Name) VALUES (6, N'bannished')
+;
+INSERT EntityType (Id, Name) VALUES (10, N'page')
+;
+INSERT EntityType (Id, Name) VALUES (11, N'ad')
+;
+INSERT EntityType (Id, Name) VALUES (12, N'event')
+;
+INSERT EntityType (Id, Name) VALUES (13, N'centreofinterest')
+;
+INSERT EntityType (Id, Name) VALUES (101, N'procate;ry')
+;
+INSERT EntityType (Id, Name) VALUES (102, N'profession')
+;
+
+INSERT Entity (Id, MetaDataId, Name, Bannished, TypeId, VisibilityId) VALUES (-2, 2, N'Admin', 0, 3, 1)
+;
+INSERT Entity (Id, MetaDataId, Name, Bannished, TypeId, VisibilityId) VALUES (-1, -1, N'Anonymous', 0, 4, 1)
+;
+INSERT Entity (Id, MetaDataId, Name, Bannished, TypeId, VisibilityId) VALUES (1, 2, N'Cyril', 0, 4, 1)
+;
+INSERT Entity (Id, MetaDataId, Name, Bannished, TypeId, VisibilityId) VALUES (2, 3, N'CVC', 0, 5, 1)
+;
+INSERT Entity (Id, MetaDataId, Name, Bannished, TypeId, VisibilityId) VALUES (3, 4, N'Médecin', 0, 101, 1)
+;
+INSERT Entity (Id, MetaDataId, Name, Bannished, TypeId, VisibilityId) VALUES (4, 6, N'Généraliste', 0, 102, 1)
+;
+INSERT Entity (Id, MetaDataId, Name, Bannished, TypeId, VisibilityId) VALUES (5, 7, N'Docteur Jean Doe', 0, 2, 1)
+;
+
+INSERT MessageType (Id, Name) VALUES (1, N'Message')
+;
+INSERT MessageType (Id, Name) VALUES (2, N'Comment')
+;
+INSERT MessageType (Id, Name) VALUES (3, N'Article')
+;
+INSERT MessageType (Id, Name) VALUES (4, N'LinkMessage')
+;
+INSERT LinkType (Id, Name) VALUES (1, N'friend')
+;
+INSERT LinkType (Id, Name) VALUES (2, N'creator')
+;
+INSERT LinkType (Id, Name) VALUES (3, N'admin')
+;
+INSERT LinkType (Id, Name) VALUES (4, N'contributor')
+;
+INSERT LinkType (Id, Name) VALUES (10, N'demand')
+;
+INSERT LinkType (Id, Name) VALUES (11, N'confirmed')
+;
+INSERT LinkType (Id, Name) VALUES (12, N'refused')
+;
+INSERT LinkType (Id, Name) VALUES (20, N'like')
+;
+INSERT LinkType (Id, Name) VALUES (30, N'banish')
+;
+INSERT LinkType (Id, Name) VALUES (31, N'allowtoread')
+;
+INSERT LinkType (Id, Name) VALUES (32, N'allowtocomment')
+;
+INSERT LinkType (Id, Name) VALUES (33, N'allowtoupdate')
+;
+INSERT LinkType (Id, Name) VALUES (34, N'allowtocreate')
+;
+INSERT LinkType (Id, Name) VALUES (35, N'allowtoadmin')
+;
+INSERT LinkType (Id, Name) VALUES (101, N'profession')
+;
+INSERT LinkType (Id, Name) VALUES (102, N'procate;ry')
+;
+INSERT Link (EntityIdFrom, EntityIdTo, TypeId, Status, DateTime, MessageId) VALUES (1, 2, 2, 11, NOW(), NULL)
+;
+INSERT Link (EntityIdFrom, EntityIdTo, TypeId, Status, DateTime, MessageId) VALUES (1, 2, 20, 11, NOW(), NULL)
+;
+INSERT Link (EntityIdFrom, EntityIdTo, TypeId, Status, DateTime, MessageId) VALUES (4, 3, 101, 11, NOW(), NULL)
+;
+INSERT Link (EntityIdFrom, EntityIdTo, TypeId, Status, DateTime, MessageId) VALUES (5, 4, 102, 11, NOW(), NULL)
+;

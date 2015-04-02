@@ -1,0 +1,7 @@
+Les données sont dans entity_metadata.js et sont donc traduisible
+Récuperation des models par Chrome / Inpsection / Networks
+http://zygotebody.com/models/adult_female/entity_metadata.json
+Traduction effectué pour heart
+cf models.js du projet .NET
+http://www.nlm.nih.gov/research/visible/visible_human.html
+http://lifesciencedb.jp/bp3d/?lng=en

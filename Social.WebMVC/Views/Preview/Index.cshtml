@@ -1,0 +1,225 @@
+﻿@model Social.RepositoriesLibrary.Entities.Crawler.Preview
+
+@{
+    ViewBag.Title = "Preview";
+}
+
+<p>
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.TextBoxFor(model => model.Url)
+    <input type="submit" value="Preview" class="btn"/><br/>
+    Write(Model.ToString());<br/>
+    @Html.Raw(Model.ToString());
+}*@
+    
+</p>
+<p>
+    Web API<br/>
+        <p>Scrapper</p>
+        <textarea id="linkBox" class="linkBox" rows="2" cols="30"></textarea>
+        <br /><input type="button" id="scrapper_post_button" value="Post">
+        <table id="scrapper">
+            <tr>
+                <td>
+                    <table id="scrapper_img_holder">
+                        <tr>
+                            <td colspan="2" style="height:100px; overflow:hidden;">
+                                <div id="scrapper_img"></div>
+                                <iframe id="scrapper_iframe" width="240" height="135" allowfullscreen></iframe>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="" style="width:50%; text-align:right;">
+                                <input type="button" id="prevPicButton" value="<">
+                            </td>
+                            <td id="" style="width:50%; text-align:left;">
+                                <input type="button" id="nextPicButton" value=">">
+                            </td>
+                        </tr>
+                        <tr><td colspan="2"><div id="scrapper_img_count"></div></td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table id="scrapper_text_holder">
+                        <tr><td><div id="scrapper_title"></div></td></tr>
+                        <tr><td><div id="scrapper_url"></div></td></tr>
+                        <tr><td><br /><div id="scrapper_description"></div></td></tr>
+                    </table>
+                </td></tr>
+        </table>
+        <br />
+        <div id="displayArea"><hr /></div>
+</p>
+
+
+@*<script>
+    $("#WebAPIBtn").click(function () {
+        $("#WebAPIDiv").append("Loading");
+    });
+</script>*@
+
+@section Scripts {
+    <script type="text/javascript">
+        function abortTimer(tid) {
+            if (null != tid) clearTimeout(tid)
+        }
+
+        function getUrl(prefix, urlText) {
+            var urlString = '';
+            var startIndex = urlText.indexOf(prefix);
+            for (var i = startIndex; i < urlText.length; i++) {
+                if (urlText[i] == ' ' || urlText[i] == '\n') break;
+                else urlString += urlText[i]
+            }
+            return urlString
+        }
+
+        $(document).ready(function () {
+            //Scrapper
+            var scrapper_total_width = 400;
+            var scrapper_image_width = 100;
+            var scrapper_image_height = 100;
+            var imgSrcArray = [];
+            var iframeSrc = "";
+            var imgArrayCounter = 0;
+            var tid;
+
+
+            //Output variables - should be global
+            var scrapperLinkURL; //contains a URL if present in the scrapperText
+            var scrapperLinkTitle; //contains the title of the URL webpage
+            var scrapperLinkDescription; //contains a short desription of the URL
+            var scrapperLinkImageURL; //contains a URL of the image selected
+            var scrapperLinkIFrameURL; //contains a URL of the image selected
+            var scrapperText; //contains the text entered in the textarea
+            //A virer dans une css
+            var scrapper_post_button_css = {
+                'background-color': 'rgb(164,15,9)',
+                'border': 'none',
+                'color': 'white',
+                'padding-left': '7px',
+                'padding-right': '7px',
+                'padding-top': '3px',
+                'padding-bottom': '3px'
+            };
+            var linkBox_css = { 'border': '1px solid #e2e2e2' };
+            var scrapper_css = { 'border': '1px solid #e2e2e2' };
+            var scrapper_img_css = {
+                'background-position': 'center',
+                'background-color': 'white',
+                'background-repeat': 'no-repeat',
+                'background-size': 'contain',
+            };
+            var scrapper_img_holder_css = { 'padding': '2px', 'margin': '2px' };
+            var scrapper_img_count_css = { 'font-size': '10px', 'color': 'rgb(127,127,127)', 'text-align': 'center' };
+            var scrapper_text_holder_css = { 'padding': '2px', 'margin': '2px' };
+            var scrapper_title_css = { 'font-weight': 'bold', 'font-size': '14px' };
+            var linkScrapper_css = { 'font': '12px Calibri' };
+            var button_css = { 'border': '1px solid  rgba(0, 0, 0, 0.5)', 'cursor': 'hand', 'cursor': 'pointer' };
+            $('#linkScrapper').css(linkScrapper_css);
+            $('#linkBox').css(linkBox_css);
+            $('#scrapper_img').css(scrapper_img_css);
+            $('#scrapper').css(scrapper_css);
+            $('#scrapper_img_holder').css(scrapper_img_holder_css);
+            $('#scrapper_img_count').css(scrapper_img_count_css);
+            $('#scrapper_text_holder').css(scrapper_text_holder_css);
+            $('#scrapper_title').css(scrapper_title_css);
+            $('#prevPicButton').css(button_css);
+            $('#scrapper_post_button').css(button_css);
+            $('#scrapper_post_button').css(scrapper_post_button_css);
+            $('#nextPicButton').css(button_css);
+            $('#linkBox').css('width', scrapper_total_width + 'px');
+            $('#scrapper_img').css('width', scrapper_image_width + 'px');
+            $('#scrapper_img').css('height', scrapper_image_height + 'px');
+            $('#scrapper').css('width', (scrapper_total_width + 3) + 'px');
+            $('#scrapper').hide()
+
+            $("#nextPicButton").click(function () {
+                imgArrayCounter++;
+                if (imgArrayCounter >= imgSrcArray.length) imgArrayCounter = 0;
+                $('#scrapper_img').css('backgroundImage', 'url(' + imgSrcArray[imgArrayCounter] + ')');
+                $('#scrapper_img_count').text((imgArrayCounter + 1) + ' of ' + imgSrcArray.length)
+            });
+
+            $("#prevPicButton").click(function () {
+                imgArrayCounter--;
+                if (imgArrayCounter < 0) imgArrayCounter = imgSrcArray.length - 1;
+                $('#scrapper_img').css('backgroundImage', 'url(' + imgSrcArray[imgArrayCounter] + ')');
+                $('#scrapper_img_count').text((imgArrayCounter + 1) + ' of ' + imgSrcArray.length)
+            });
+
+            function scrapeURL(urlText) {
+                var urlString;
+                if (urlText.indexOf('http://') >= 0) {
+                    urlString = getUrl('http://', urlText);
+                    getUrlData(urlString);
+                    $('#scrapper').show()
+                }
+                else if (urlText.indexOf('https://') >= 0) {
+                    urlString = getUrl('https://', urlText);
+                    getUrlData(urlString);
+                    $('#scrapper').show()
+                }
+                else if (urlText.indexOf('www.') >= 0) {
+                    urlString = getUrl('www', urlText);
+                    getUrlData('http://' + urlString);
+                    $('#scrapper').show()
+                }
+                else { $('#scrapper').hide() }
+            }
+
+            function getUrlData(urlString) {
+                $.post("/api/Preview", { '': urlString }, function (data, status, jqXHR) {
+                    if(data.Title != null) $('#scrapper_title').text(data.Title);
+                    $('#scrapper_url').text(data.Url);
+                    if (data.Summary != null) $('#scrapper_description').text(data.Summary)
+                    if (data.IFrameUrl != null) {
+                        iframeSrc = data.IFrameUrl;
+                        $('#scrapper_iframe').attr("src", data.IFrameUrl);
+                        $('#scrapper_img').hide();
+                        $('#scrapper_iframe').show();
+                        $('#scrapper_img_count').text('1 of 1');
+                    }
+                    else {
+                        if (data.ComputeImageUrls.length > 0) {
+                            $('#scrapper_img_count').text('1 of ' + data.ComputeImageUrls.length);
+                            $('#scrapper_img').css('backgroundImage', 'url(' + data.ComputeImageUrls[0] + ')');
+                            $('#scrapper_img').show();
+                            $('#scrapper_img_count').show();
+                        }
+                        else {
+                            $('#scrapper_img').hide();
+                            $('#scrapper_img_count').text('0 of 0');
+                        }
+                        $('#scrapper_iframe').hide();
+                    }
+                    
+                    imgSrcArray = data.ComputeImageUrls;
+                })
+            }
+
+            $("#linkBox").keyup(function (event) {
+                urlText = this.value;
+                abortTimer(tid);
+                tid = setTimeout(function () { scrapeURL(urlText) }, 2000);
+                if (event.which == 13) { this.rows++ }
+            });
+
+            $("#scrapper_post_button").click(function () {
+                scrapperLinkURL = $('#scrapper_url').text();
+                scrapperLinkTitle = $('#scrapper_title').text();
+                scrapperLinkDescription = $('#scrapper_description').text();
+                scrapperLinkImageURL = imgSrcArray[imgArrayCounter];
+                scrapperLinkIFrameURL = iframeSrc;
+                scrapperText = $("#linkBox").val();
+                displayScrapperData()
+            });
+
+            function displayScrapperData() {
+                $('#displayArea').prepend('<hr/><br/><div style="margin:0px auto; text-align:center;"><img src="' + scrapperLinkImageURL + '"/><br/><iframe id="scrapper_iframe" width="240" height="135" src="' + scrapperLinkIFrameURL + '" allowfullscreen></iframe></div>' + '<br/><b>Text: </b>' + scrapperText + '<br/><b>URL: </b>' + scrapperLinkURL + '<br/><b>Title: </b>' + scrapperLinkTitle + '<br/><b>Description: </b>' + scrapperLinkDescription + '<br/><b>Image Source: </b>' + scrapperLinkImageURL + '<br/><br/>');
+            }
+        })
+    </script>
+}

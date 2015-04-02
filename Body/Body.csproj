@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A44AD487-4124-4867-81E5-BCC3871EFFAA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Body</RootNamespace>
+    <AssemblyName>Body</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\Thumbs.db" />
+    <Content Include="models\cow_anatomy\00289cd8.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\03192156.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\0bc1aaa4.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\18a1ffcd.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\2046c166.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\27dddaa1.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\28039199.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\322e4e7f.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\37ca33d4.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\3a7d7b36.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\4089d201.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\5154f027.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\5495c0c0.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\592d0144.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\5ab02f90.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\5ccd5faa.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\69bb9f17.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\6a166a08.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\7f643ec7.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\838f8747.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\860c1e0a.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\8dad39ea.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\8f508a6f.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\90bc99ae.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\9f069dd9.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\a7589212.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\ad31f590.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\ae3e36bd.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\Bessie.mtl" />
+    <Content Include="models\cow_anatomy\Bessie.obj" />
+    <Content Include="models\cow_anatomy\c895fc57.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\e022e9c1.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\entity_metadata.json" />
+    <Content Include="models\cow_anatomy\fda1bbe7.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\fe28a159.cow_anatomy.utf8" />
+    <Content Include="models\cow_anatomy\ff4f5c87.cow_anatomy.utf8" />
+    <Content Include="models\adult_female\046b5a58.adult_female.utf8" />
+    <Content Include="models\adult_female\06c2bf22.adult_female.utf8" />
+    <Content Include="models\adult_female\0bffacac.adult_female.utf8" />
+    <Content Include="models\adult_female\0f8e2e39.adult_female.utf8" />
+    <Content Include="models\adult_female\12286d72.adult_female.utf8" />
+    <Content Include="models\adult_female\14ba5ad0.adult_female.utf8" />
+    <Content Include="models\adult_female\179b80f3.adult_female.utf8" />
+    <Content Include="models\adult_female\17ac78a4.adult_female.utf8" />
+    <Content Include="models\adult_female\1ad6b0a5.adult_female.utf8" />
+    <Content Include="models\adult_female\2019e3fb.adult_female.utf8" />
+    <Content Include="models\adult_female\23aeabdf.adult_female.utf8" />
+    <Content Include="models\adult_female\24d01d99.adult_female.utf8" />
+    <Content Include="models\adult_female\2ab62b26.adult_female.utf8" />
+    <Content Include="models\adult_female\2ffbe30e.adult_female.utf8" />
+    <Content Include="models\adult_female\35966537.adult_female.utf8" />
+    <Content Include="models\adult_female\3e0324f0.adult_female.utf8" />
+    <Content Include="models\adult_female\40604b31.adult_female.utf8" />
+    <Content Include="models\adult_female\421c7073.adult_female.utf8" />
+    <Content Include="models\adult_female\4307388c.adult_female.utf8" />
+    <Content Include="models\adult_female\435216ad.adult_female.utf8" />
+    <Content Include="models\adult_female\46355537.adult_female.utf8" />
+    <Content Include="models\adult_female\493340d2.adult_female.utf8" />
+    <Content Include="models\adult_female\4a3340cd.adult_female.utf8" />
+    <Content Include="models\adult_female\4da72c4d.adult_female.utf8" />
+    <Content Include="models\adult_female\4dbb67be.adult_female.utf8" />
+    <Content Include="models\adult_female\4f832b33.adult_female.utf8" />
+    <Content Include="models\adult_female\581eb56c.adult_female.utf8" />
+    <Content Include="models\adult_female\63d13772.adult_female.utf8" />
+    <Content Include="models\adult_female\67618ae6.adult_female.utf8" />
+    <Content Include="models\adult_female\68afc329.adult_female.utf8" />
+    <Content Include="models\adult_female\6fac89ff.adult_female.utf8" />
+    <Content Include="models\adult_female\719052c0.adult_female.utf8" />
+    <Content Include="models\adult_female\7b44ddc6.adult_female.utf8" />
+    <Content Include="models\adult_female\8829a7b7.adult_female.utf8" />
+    <Content Include="models\adult_female\88aeaee5.adult_female.utf8" />
+    <Content Include="models\adult_female\8bfaeb3f.adult_female.utf8" />
+    <Content Include="models\adult_female\8d374cd9.adult_female.utf8" />
+    <Content Include="models\adult_female\94ba3d5e.adult_female.utf8" />
+    <Content Include="models\adult_female\960a2c77.adult_female.utf8" />
+    <Content Include="models\adult_female\97c0a9b3.adult_female.utf8" />
+    <Content Include="models\adult_female\9994cd43.adult_female.utf8" />
+    <Content Include="models\adult_female\9aa1eabe.adult_female.utf8" />
+    <Content Include="models\adult_female\a03be894.adult_female.utf8" />
+    <Content Include="models\adult_female\ae5e2cff.adult_female.utf8" />
+    <Content Include="models\adult_female\af75b688.adult_female.utf8" />
+    <Content Include="models\adult_female\b496b2dd.adult_female.utf8" />
+    <Content Include="models\adult_female\c03d61e3.adult_female.utf8" />
+    <Content Include="models\adult_female\cfce536e.adult_female.utf8" />
+    <Content Include="models\adult_female\d60063ae.adult_female.utf8" />
+    <Content Include="models\adult_female\d736e881.adult_female.utf8" />
+    <Content Include="models\adult_female\d8ada6d2.adult_female.utf8" />
+    <Content Include="models\adult_female\daf26c2e.adult_female.utf8" />
+    <Content Include="models\adult_female\e36e8a16.adult_female.utf8" />
+    <Content Include="models\adult_female\entity_metadata.json" />
+    <Content Include="models\adult_female\f0c1868e.adult_female.utf8" />
+    <Content Include="models\adult_female\f27c8c1b.adult_female.utf8" />
+    <Content Include="models\adult_female\f6a8ebf8.adult_female.utf8" />
+    <Content Include="models\adult_female\f85e1a27.adult_female.utf8" />
+    <Content Include="models\adult_female\fdec7bfb.adult_female.utf8" />
+    <Content Include="Zygote.txt" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\checker.png" />
+    <Content Include="img\label_close.png" />
+    <Content Include="img\label_expand.png" />
+    <Content Include="img\label_pin_and_close.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\toggle_multiple_sliders.png" />
+    <Content Include="img\toggle_single_slider.png" />
+    <Content Include="index.html" />
+    <Content Include="main_ui.css" />
+    <Content Include="models\adult_female\adult_female.js" />
+    <Content Include="models\adult_female\layer_icons.png" />
+    <Content Include="models\adult_female\model_icon.png" />
+    <Content Include="models\common\arm_E_D.jpg" />
+    <Content Include="models\common\brain_cerebellum.jpg" />
+    <Content Include="models\common\brain_cerebrum_L.jpg" />
+    <Content Include="models\common\brain_cerebrum_R.jpg" />
+    <Content Include="models\common\brain_dura_outer.jpg" />
+    <Content Include="models\common\brain_interior.jpg" />
+    <Content Include="models\common\connective_Bursa.jpg" />
+    <Content Include="models\common\connective_hip2.jpg" />
+    <Content Include="models\common\connective_knee2.jpg" />
+    <Content Include="models\common\F_Skin_Body.jpg" />
+    <Content Include="models\common\f_skin_hair_base.jpg" />
+    <Content Include="models\common\f_skin_hair_strands.jpg" />
+    <Content Include="models\common\F_Skin_Head.jpg" />
+    <Content Include="models\common\f_skin_iris.jpg" />
+    <Content Include="models\common\heart_ex_atrium.jpg" />
+    <Content Include="models\common\heart_ex_ventr.jpg" />
+    <Content Include="models\common\heart_int_left.jpg" />
+    <Content Include="models\common\heart_int_right.jpg" />
+    <Content Include="models\common\muscles_armA.jpg" />
+    <Content Include="models\common\muscles_back_muscles_2.jpg" />
+    <Content Include="models\common\muscles_headA.jpg" />
+    <Content Include="models\common\muscles_headB.jpg" />
+    <Content Include="models\common\muscles_hip.jpg" />
+    <Content Include="models\common\organs_liver_gall.jpg" />
+    <Content Include="models\common\organs_lung_r.jpg" />
+    <Content Include="models\common\organs_pleura_L.jpg" />
+    <Content Include="models\common\organs_pleura_R.jpg" />
+    <Content Include="models\common\organs_stomach_lining.jpg" />
+    <Content Include="models\cow_anatomy\cow_anatomy.js" />
+    <Content Include="models\cow_anatomy\groupings.txt" />
+    <Content Include="models\cow_anatomy\layer_icons.png" />
+    <Content Include="models\cow_anatomy\LICENSE.txt" />
+    <Content Include="models\cow_anatomy\model_icon.png" />
+    <Content Include="models\cow_anatomy\NOTICE.txt" />
+    <Content Include="models\cow_anatomy\parts_info.txt" />
+    <Content Include="models\cow_anatomy\README.txt" />
+    <Content Include="no_webgl.html" />
+    <Content Include="scripts\common.js" />
+    <Content Include="scripts\content.js" />
+    <Content Include="scripts\entities.js" />
+    <Content Include="scripts\gestures.js" />
+    <Content Include="scripts\gl-matrix-min.js" />
+    <Content Include="scripts\history.js" />
+    <Content Include="scripts\input_handler.js" />
+    <Content Include="scripts\interpolant.js" />
+    <Content Include="scripts\label.js" />
+    <Content Include="scripts\layer.js" />
+    <Content Include="scripts\layers_ui.js" />
+    <Content Include="scripts\loader.js" />
+    <Content Include="scripts\main_ui.js" />
+    <Content Include="scripts\models.js" />
+    <Content Include="scripts\navigate.js" />
+    <Content Include="scripts\nav_ui.js" />
+    <Content Include="scripts\opacity.js" />
+    <Content Include="scripts\renderer.js" />
+    <Content Include="scripts\render_interface.js" />
+    <Content Include="scripts\search.js" />
+    <Content Include="scripts\select.js" />
+    <Content Include="scripts\shaders.txt" />
+    <Content Include="scripts\viewer.js" />
+    <Content Include="scripts\webgl.js" />
+    <Content Include="scripts\webgl_util.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12783</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:12783/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

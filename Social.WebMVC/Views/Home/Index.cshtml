@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="globalContainer">
+    <div id="content" class="content">
+        <div class="pageletComposer">
+            <div class="composerArea">
+                <div class="Composer">
+                    @Html.TextArea("ComposerTB", new { id = "ComposerTB", placeholder = "Exprimez-vous", border = "0" })
+                </div>
+                <div id="scrapper" class="scrapper" style="display:none">
+                    <div class="scrapperClose">
+                        <input type="button" id="scrapperClose" value="X">
+                    </div>
+                    <div class="scrapperImageButtonsHolder">
+                        <div class="scrapperImageHolder">
+                            <div class="scrapperImage" style="display:none">
+                                <div class="scrapperButtons">
+                                    <input type="button" id="scrapperPrevButton" value="<">
+                                    <input type="button" id="scrapperNextButton" value=">">
+                                </div>
+                                <div class="scrapperButtonsText">
+                                </div>
+                            </div>
+                            <iframe class="scrapperIFrame" style="display:none" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="scrapperTextHolder">
+                        <div class="scrapperTitle"></div>
+                        <div class="scrapperText"></div>
+                        <br/>
+                        <div class="scrapperUrl"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="composerSubmit">
+                <input type="button" class="btn btn-default" id="composerButton" value="Publier">
+            </div>
+        </div>
+
+        <div id="moreMessageHolder">
+            <input type="button" id="moreMessageBtn" style="display:none" class="btn" value="Voir des messages plus anciens">
+        </div>
+
+        <div id="pageletViewerTemplate" style="display:none">
+            <div class="pageletViewer">
+                <div class="composerArea">
+                    <div class="composerHeader">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="composerImage"></div>
+                                </td>
+                                <td>
+                                    <p><div class="composerName">Invité</div></p>
+                                    <p><div class="composerDate"></div> <div class="messageId">0</div></p>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="Composer">
+                        Template
+                    </div>
+                    <div class="scrapper" style="display:none">
+                        <a class="scrapperA bigscrap" target="_blank">
+                            <div class="scrapperImageButtonsHolder bigscrap">
+                                <div class="scrapperImageHolder bigscrap">
+                                    <div class="scrapperImage bigscrap" style="display:none"></div>
+                                    <iframe class="scrapperIFrame bigscrap " style="display:none" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="scrapperTextHolder bigscrap">
+                                <div class="scrapperTitle"></div>
+                                <div class="scrapperText"></div>
+                                <div class="scrapperUrl"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="pageletToolbar">
+                        <span class="likeSpan"><img class="likeImg" src="/Content/i/like.png"/> <span class="nbLike"></span></span>
+                        <span><img class="likeImg" src="/Content/i/comment.png" /> <span class="nbComment"></span> - <span class="like btn-link">J'aime</span> - Partager - Facebook - Twitter</span>
+                    </div>
+                </div>
+
+                <div class="composerComments">
+                    <table class="composerCommentTable">
+                        <tr class="composerCommentTR"><td width="26"><div class="composerImageSmall"></div></td><td><textarea class="composerComment" rows="1" placeholder="Commentez"></textarea></td><td width="60"><input type="button" class="btn commentButton" value="Publier"></td></tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="commentletTemplate" style="display:none">
+            <table>
+                <tr>
+                    <td width="26"><div class="composerImage"></div></td>
+                    <td colspan="2">
+                        <span class="commentEntity">Invité</span> <span class="comment">Template</span>
+                        <br/>
+                        <span class="commentDate"></span>
+                        <span><img class="likeImg" src="/Content/i/like.png" /> <span class="nbCommentLike">0</span> - J'aime <span class="commentId">0</span></span>
+                        <br/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script language="JavaScript" type="text/javascript" src="/Scripts/scrapper.cvc.js"></script>
+<script language="JavaScript" type="text/javascript" src="/Scripts/message.cvc.js"></script>
+}
+
